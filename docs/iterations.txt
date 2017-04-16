@@ -1,0 +1,50 @@
+1. New Rails Project
+2. Add owner : boolean to Doctor model. Bootstrap the owner.
+
+Name - max 35 characters; required
+Address
+City
+State
+Zip - max 5 digits
+School - Received Degree From
+Years in Practice - must be value between 1-100
+
+rails g model doctor name adddress city state zip school experience:integer
+
+class CreateDoctors < ActiveRecord::Migration[5.0]
+  def change
+    create_table :doctors do |t|
+      t.string :name, :limit => 35
+      t.string :address
+      t.string :city
+      t.string :state
+      t.string :zip, :limit => 5
+      t.string :school
+      t.integer :experience
+      t.boolean :owner, :default => false
+
+      t.timestamps
+    end
+  end
+end
+
+
+rails db:migrate
+
+seeds.rb
+
+
+Doctor.create(name: 'Dick', 
+              address: '1234 Main Street', 
+              city: 'Atlanta', 
+              state: 'GA', 
+              zip: '94085', 
+              school: 'School of Animals', 
+              experience: 10,
+              owner: true)
+
+
+
+
+
+ (510) 260-5409

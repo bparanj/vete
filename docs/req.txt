@@ -30,3 +30,14 @@ Date of Last Visit – required
 Pet's Name
 Date of Next Appointment
 Reason for Visit
+
+
+Doctors
+
+CRUD
+
+Pet
+CRUD
+
+Customer
+
