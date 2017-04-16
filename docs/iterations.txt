@@ -1,4 +1,4 @@
-1. New Rails Project
+1. New Rails Project : Iteration 0
 2. Add owner : boolean to Doctor model. Bootstrap the owner.
 
 Name - max 35 characters; required
@@ -43,8 +43,8 @@ Doctor.create(name: 'Dick',
               experience: 10,
               owner: true)
 
+3. Owner can manage vet doctor info
 
+rails g controller doctors index show new 
 
-
-
- (510) 260-5409
+Validation tests for the doctor model.
