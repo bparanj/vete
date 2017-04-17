@@ -48,3 +48,11 @@ Doctor.create(name: 'Dick',
 rails g controller doctors index show new 
 
 Validation tests for the doctor model.
+
+Implement index and show page.
+
+Create and update done
+
+To be continued:
+
+Implement the use case for receptionist.

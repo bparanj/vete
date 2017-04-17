@@ -1,2 +1,31 @@
-<h1>Doctors#show</h1>
-<p>Find me in app/views/doctors/show.html.erb</p>
+<p>
+  <%= @doctor.name %>
+</p>
+
+<p>
+  <%= @doctor.address %>
+</p>
+
+<p>
+  <%= @doctor.city %>
+</p>
+
+<p>
+  <%= @doctor.state %>
+</p>
+
+<p>
+  <%= @doctor.zip %>
+</p>
+
+<p>
+  School: <%= @doctor.school %>
+</p>
+
+<p>
+  Experience:  <%= @doctor.experience %> years.
+</p>
+
+
+<%= link_to 'Edit', edit_doctor_path(@doctor) %> |
+<%= link_to 'Back', doctors_path %>
