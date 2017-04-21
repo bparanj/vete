@@ -56,3 +56,79 @@ Create and update done
 To be continued:
 
 Implement the use case for receptionist.
+
+Appointment record:
+
+Date of Visit - date cannot be in the past; value is required
+Pet - required
+Customer -required
+Requires Reminder of Appointment        boolean checkbox
+Reason for Visit – required             textfield
+
+
+Before appointment, we need to implement #3.
+
+
+3. As one of the practicing veterinary doctors, I should be able to record the following information about a customer's pet.
+Name of Pet - required, no more than 35 characters
+Type of Pet - must be a dog, cat, or bird
+Breed - required, no more than 35 characters
+Age - required
+Weight - required
+Date of Last Visit – required
+
+rails g scaffold pet name breed age:integer weight:integer last_visit:datetime
+
+rails db:migrate
+
+rails g migration add_pet_type_to_pets type:string
+
+class Pet < ApplicationRecord
+   CATEGORY = ["Dog", "Cat", "Bird"]
+   
+   validates :name, presence: true
+   validates :age, presence: true
+   validates :weight, presence: true
+   validates :last_visit, presence: true
+   
+   validates :breed, presence: true
+   validates :breed, length: { maximum: 35 }
+end
+
+
+Make null false for:
+
+class CreatePets < ActiveRecord::Migration[5.0]
+  def change
+    create_table :pets do |t|
+      t.string :name, null: false
+      t.string :breed, null: false
+      t.integer :age, null: false
+      t.integer :weight, null: false
+      t.datetime :last_visit, null: false
+
+      t.timestamps
+    end
+  end
+end
+
+The single-table inheritance mechanism failed to locate the subclass: 'Dog'. This error is raised because the column 'type' is reserved for storing the class in case of inheritance. Please rename this column if you didn't intend it to be used for storing the inheritance class or overwrite Pet.inheritance_column to use another column for that information.
+
+class AddPetTypeToPets < ActiveRecord::Migration[5.0]
+  def change
+    add_column :pets, :category, :string
+  end
+end
+
+
+  <div class="field">
+    <%= f.label :category %>
+    <%= f.select(:category, Pet::CATEGORY) %>
+  </div>
+
+
+Pets resource done.
+
+
+
+

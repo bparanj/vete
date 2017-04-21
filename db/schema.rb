@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170412174911) do
+ActiveRecord::Schema.define(version: 20170421010322) do
 
   create_table "doctors", force: :cascade do |t|
     t.string   "name",       limit: 35
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 20170412174911) do
     t.boolean  "owner",                 default: false
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
+  end
+
+  create_table "pets", force: :cascade do |t|
+    t.string   "name"
+    t.string   "breed"
+    t.integer  "age"
+    t.integer  "weight"
+    t.datetime "last_visit"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "category"
   end
 
 end
